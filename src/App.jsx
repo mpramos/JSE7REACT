@@ -1,8 +1,18 @@
 
 import './App.css'
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 import Footer from './Components/Footer'
 import { Header } from './Components/Header'
 import Main from './Components/Main'
+import UserCard from './Components/UserCard'
+import Avatar from './Components/Avatar';
+import Nav from './Components/Nav';
+import Hero from './Components/Hero';
+import CharacterCard from './Components/CharacterCard';
 
 
 
@@ -28,13 +38,16 @@ const footer = (
     <p>Copyright 2023</p>
   </footer>
 )
-
+// let urlImage = 'https://rickandmortyapi.com/api/character/avatar/542.jpeg'
+let urlImage = 'https://rickandmortyapi.com/api/character/avatar/734.jpeg'
+let nameCharacter = 'Johnathan'
 function App() {
   return (
     <>
-      <Header />
-      <Main />
-      <Footer />
+    <Nav/>
+    <Hero/>
+    <Main/>
+    
     </>
   )
 }
