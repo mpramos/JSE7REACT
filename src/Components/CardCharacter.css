@@ -1,0 +1,8 @@
+.container-card{
+    background-color: #3c3e44;
+    color: #e0e0e0;
+    color: red;
+
+    /* transform: translate(130%,10px); */
+}
+/* translate(calc(130%), 10px) */

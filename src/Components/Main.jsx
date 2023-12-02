@@ -1,12 +1,18 @@
 import React from 'react'
 import './Main.css'
-import CharacterCard from './CharacterCard'
+import CardCharacter from './CardCharacter'
 
 const Main = () => {
   return (
     <>
     <section className='main-container'>
-   <CharacterCard/>
+      <CardCharacter/>
+      <CardCharacter/>
+      <CardCharacter/>
+      <CardCharacter/>
+      <CardCharacter/>
+      <CardCharacter/>
+      <CardCharacter/>
     </section>
     </>
   )
