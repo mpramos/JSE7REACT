@@ -11,9 +11,8 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import './CardCharacter.css'
-
-
+import { Button } from '@mui/material';
+// import './CardCharacter.css'
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -30,9 +29,11 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function CardCharacter() {
+export default function CardCharacter( props) {
   const [expanded, setExpanded] = React.useState(false);
-
+  let isAlive = props.status[0] === 'Alive'
+  let listStatus = props.status.map(dato => <li>{dato}</li>) 
+  let ulStatus=<ul>{listStatus}</ul>
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -43,7 +44,17 @@ let styles ={
   marginBottom:'20px'
 }
 
+let currentYear = 2020
+let birthYear = 2015
+const age = currentYear - birthYear // 15 years
+
+let status = age >= 18
   return (
+    <>
+    <div>
+      {ulStatus}
+    </div>
+    {console.log('isAlive ', status)}
     <Card sx={{ maxWidth: 345 }} style={styles}>
       {/* <CardHeader 
         title="Octopus Man"
@@ -54,11 +65,26 @@ let styles ={
         height="194"
         image="https://rickandmortyapi.com/api/character/avatar/254.jpeg"
         alt="Paella dish"
-
-      />
+        
+        />
       <CardContent>
         <Typography variant="h6">
-            Alive - Humanoid
+            {props.name}
+        </Typography>
+      </CardContent>
+      <CardContent>
+        <Typography variant="h6">
+            {props.age}
+        </Typography>
+      </CardContent>
+      <CardContent>
+        <Typography variant="h6">
+          {props.status[0]} {props.status[1]} {status} 
+        </Typography>
+      </CardContent>
+      <CardContent>
+        <Typography variant="h3">
+          {status} 
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -73,17 +99,21 @@ let styles ={
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
-        >
+          >
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography color={red[500]} paragraph>
+            {ulStatus}
           Last known location:
           </Typography>
           <Typography paragraph>
             Citadel of Ricks
+            {
+              props.character.firstName
+            }
           </Typography>
           <Typography>
           First seen in:
@@ -92,5 +122,6 @@ let styles ={
         </CardContent>
       </Collapse>
     </Card>
+          </>
   );
 }
